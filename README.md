@@ -1,9 +1,9 @@
-# Mac 开光指南（V2）
+# Mac 开光指南（V3）
 💻 一份新 macOS 快速食用方法，普适新 Mac 或重装系统。
 
-> 本指南基于 MBP 14寸 12.5 系统（**主**）和 MBP 13寸 11.4 系统。
+> 本指南基于 MBP 16寸 13.4.1 系统（**主**）和 MBP 13寸 13.4.1 系统。
 >
-> 系统和软件的更新频繁，本项目不一定及时更新，故操作界面或步骤会略有差别，但影响不大。
+> 系统和软件的更新频繁，本项目不一定及时更新，故操作界面或步骤会略有差别，但影响不大。如有影响和疑问请提issue
 >
 > 本指南涉及内容较广，请选择适合自己的操作。
 > 
@@ -11,11 +11,11 @@
 >
 > 本指南遵循许可协议 [CC BY-NC-ND 4.0](https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh)（请看[转载要求](https://shockerli.net/reprint-protocol)）
 >
-> 博客原文地址: https://shockerli.net/post/mac-initialize
+> 原V2版本地址: https://shockerli.net/post/mac-initialize
 >
-> 长期更新地址: https://github.com/shockerli/mac-initialize
+> 长期更新地址: https://github.com/zer0yu/mac-initialize
 >
-> 最后更新于 `2023-03-01`
+> 最后更新于 `2023-07-02`
 
 
 ## 应用安装
@@ -212,6 +212,7 @@ sudo scutil --set HostName 自定义主机名
 sudo scutil --set ComputerName 自定义电脑名
 ```
 
+PS: 如果有修改用户名的需求建议直接重制系统然后进行设置，不然会对 `/home/username` 这个目录造成影响。
 
 ### 拼写辅助
 当你输入英文单词时，默认会提示你更正首字母为大写，烦人的很。
@@ -338,7 +339,7 @@ pwpolicy -clearaccountpolicies
 ### 开机自启管理
 用户级别的开机自启应用管理，可在 `系统偏好设置 → 用户与群组 → 登录项` 列表中查看和开关。
 
-系统级别的，比如 `Docker`，可用 `柠檬清理` 等系统工具进行管理。
+系统级别的，比如 `Docker`，可用 `柠檬清理` `App Cleaner` 等系统工具进行管理。
 
 如果是通过 `Homebrew` 安装的服务，那可用 `brew services` 命令管理。
 
@@ -354,6 +355,18 @@ SIP（`System Integrity Protection`，系统完整性保护）是 macOS 所采�
 
 如果是临时性的需要（如上文提到的删除系统更新文件），可以先关闭、操作完后再立即开启。
 
+但是如果要用到一些破解工具，就需要关闭 `SIP` 保护了。 
+
+> 1. 苹果M1 Mac关机状态下长按开机键，直到出现设置后松开，进入恢复模式
+> 2. 点击继续
+> 3. 点击实用工具-点击终端
+> 4. 终端内输入命令：csrutil disable然后回车执行 注意中间有个空格
+> 5. 输入y，然后按下回车键
+> 6. 输入您的电脑密码，然后按下回车
+> 7. 等待执行结果
+> 8. 出现 System Integrity Protection is off. 证明 SIP 已成功关闭
+> 9. 输入 reboot 然后按下回车也就是 return 键重启电脑即可
+> 开启SIP步骤和上面一样，第4步命令为csrutil enable
 
 
 ## 基础设施
@@ -395,6 +408,10 @@ GitHub: https://github.com/Homebrew/brew
 颜色列表: https://iterm2colorschemes.com
 
 颜色选择: `Profiles -> Colors -> Color Presets` 选择 `Solarized Dark`
+
+一般我使用 Catppuccin 的配色 : https://github.com/catppuccin/iterm
+
+只需要下载预设然后导入并使用即可
 
 
 #### 背景图
@@ -457,6 +474,7 @@ DISABLE_MAGIC_FUNCTIONS=true
 Finder → 文件右键 → 服务 → New iTerm2 Tab Here
 ```
 
+这个场景我推荐使用免费的工具：iRightMenu (App Store 下载即可)
 
 ### Oh My Zsh
 `Oh My Zsh` 让 `zsh` 变得更好用、配置更简单。（macOS 10.15 后已使用 `zsh` 作为默认 Shell）
@@ -570,6 +588,7 @@ ZSH_THEME="robbyrussell"
 
 可在 `$ZSH/custom/themes` 下自定义主题。
 
+一般推荐使用 https://github.com/romkatv/powerlevel10k 这个主题，更为美观一些
 
 ### Git
 #### GitHub 配置 SSH
@@ -671,9 +690,15 @@ set wrap            " 自动换行
 最值得使用的功能，莫过于**清理与当前芯片不同版本的二进制文件**：
 ![lemon-clean-rosetta](assets/lemon-clean-rosetta.jpg)
 
+### Deep Clean
+
+开源地址: https://github.com/dev-coco/Deep-Clean
+
+这个清理的十分彻底，各种缓存都会被清除掉（这也意味着你的 shell 命令历史也会被清除掉）。
 
 ### 输入法
-拼音输入法推荐 `搜狗输入法`，简单易用、词库齐全、安装即用。
+
+拼音输入法可以使用 `搜狗输入法`，简单易用、词库齐全、安装即用。
 
 官网下载: https://pinyin.sogou.com/mac/
 
@@ -681,19 +706,22 @@ set wrap            " 自动换行
 
 同步原配置：`偏好设置 > 登录账户 > 同步 > 配置同步 > 下载配置`
 
+可以使用这个开源皮肤，更为简洁和美观
+
+开源地址：https://github.com/xiaochunjimmy/Sogou-Input-Skin
+
+PS: 因为隐私保护问题，建议使用系统自带的输入法
 
 ### Chrome
 官网下载: https://www.google.cn/intl/zh-CN/chrome/
 
 #### 扩展
-- [Infinity New Tab Pro](http://cn.infinitynewtab.com): 新标签页
-- [iTab New Tab](https://www.itab.link): 新标签页
 - [FeHelper](https://www.baidufe.com/fehelper): 前端工具集（内含 JSON 美化对比、时间转换、编码转换等十几个小工具）
-- [Adblock Plus](https://adblockplus.org): 广告净化
+- [AdGuard](https://adguard.com/): 广告净化
 - [SimpRead](http://ksria.com/simpread): 最佳阅读体验
 - [Tampermonkey](https://www.tampermonkey.net): 油猴脚本管理
 - [ImageAssistant](http://www.pullywood.com/ImageAssistant): 图片助手，网页图片提取下载
-- [SourceGraph](https://sourcegraph.com): GitHub 源码浏览神器
+- [沉浸式翻译](https://chrome.google.com/webstore/detail/immersive-translate/bpoadfkcbjbfhfodiogcnhhhpibjhbnh?hl=zh-CN): 网页双语翻译（iPad和iPhone也同样推荐这个插件，App Store中可以下载）
 
 
 #### 油猴脚本
@@ -714,7 +742,13 @@ set wrap            " 自动换行
 - [Bilibili-Evolved](https://github.com/the1812/Bilibili-Evolved) - B站增强 [[脚本 URL]](https://raw.githubusercontent.com/the1812/Bilibili-Evolved/master/dist/bilibili-evolved.user.js)
 - [CSDNGreener](https://github.com/adlered/CSDNGreener) - CSDN 网站绿化 [[Greasy Fork]](https://greasyfork.org/zh-CN/scripts/378351)
 
+### Arc Browser
 
+这个浏览器更为美观和高效，比起Chrome而言占用资源方面有所优化，并且设计理念和UI都非常好。（是基于Chrome开发的，所以Chrome的插件它都可以使用）
+
+官网下载: https://arc.net/
+
+PS: 目前只被邀请或者通过内测申请的用户可以使用
 
 ### Alfred
 效率工具神器，可以快速的搜索本地应用、搜索本地文件、执行终端命令、浏览器搜索、打开网址、剪切板管理、翻译、文件管理、音乐控制等，也可以自定义工作流，与其他软件深度配合。
@@ -735,7 +769,13 @@ set wrap            " 自动换行
 - [learn-anything/alfred-workflows](https://github.com/learn-anything/alfred-workflows)
 - [zenorocha/alfred-workflows](https://github.com/zenorocha/alfred-workflows)
 
+### Raycast
 
+因为Alfred是收费的，而Raycast是一个免费版本的平替。并且，如果不使用 Raycast AI就不需要充值 Pro版本。而且Raycast不仅有比较丰富的插件市场，而且还兼具窗口管理的功能（使用快捷键）
+
+### Swish
+
+Swish 是目前比较好用的一款基于手势的窗口管理软件，配合Mac的触摸板使用起来非常方便。
 
 ### Shell Alias
 以下是常用命令，设置别名，使用更方便。添加到 `~/.zshrc`。
@@ -745,8 +785,6 @@ alias al='ls | sed "s:^:`pwd`/:"'
 alias egrep='ps -ef | grep'
 alias grep='grep --color=auto --exclude-dir={.bzr,CVS,.git,.hg,.svn}'
 ```
-
-
 
 ### autossh
 > 一个简单管理远程 SSH 账号的脚本工具
@@ -772,9 +810,10 @@ server_name|192.168.1.110|root|password|port|is_bastion
 - `htop`: 增强版 `top` 命令（[开源](https://github.com/htop-dev/htop)）
 - `Visual Studio Code`: 强大的编辑器（[开源](https://code.visualstudio.com)）
 - `Proxyman`: 代理抓包工具（免费）
+- `ChatDB`: 免费的数据库管理软件 （[开源](https://github.com/chat2db/Chat2DB)）
 
 
-#### Visual Studio Code
+### Visual Studio Code
 官网下载: https://code.visualstudio.com
 
 
@@ -796,6 +835,10 @@ server_name|192.168.1.110|root|password|port|is_bastion
 | `Code Runner` | 快捷运行代码文件 |
 | `EditorConfig for VS Code` | `EditorConfig` 配置扩展，根据配置统一格式化风格 |
 | `PPZ` | 关系型数据库图形管理 |
+| `Github Copilot` | 基于AI的编程辅助软件 |
+| `Catppuccin Theme` | Catppuccin 配色的主题 |
+| `Catppuccin Icon` | Catppuccin 配色的图标 |
+| `Connect SSH` | SSH到远程服务器进行开发，一众软件中最好用的 |
 
 
 #### Sublime Text
@@ -813,32 +856,47 @@ alias subl="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
 
 然后就可以使用 `subl [path]` 快捷打开文件或目录。
 
+### Bob 翻译软件
+
+软件官网：https://bobtranslate.com/
+开源地址：https://github.com/ripperhe/Bob
+
+最好用的快捷键翻译+截图翻译，更Nice的是支持ChatGPT和DeepL翻译插件
+
+PS：开源版本就够用，并且支持M1/M2
+
+- [ChatGPT插件-免API](https://github.com/akl7777777/bob-plugin-akl-chatgpt-free-translate)
+- [ChatGPT插件](https://github.com/openai-translator/bob-plugin-openai-translator)
+- [DeppL插件-免API](https://github.com/akl7777777/bob-plugin-akl-deepl-free-translate)
+
 
 ### 其他软件
 - [`f.lux`](https://justgetflux.com)：自动调整屏幕色温的护眼程序（免费）
+- `Notion`：理念先进的笔记软件，加上Notion AI，目前已经基本离不开
 - `MonitorControl`：[`开源`](https://github.com/MonitorControl/MonitorControl) 显示器亮度、音量控制，支持外接显示器
-- `万年历`：日历（免费）
-- `网易有道词典`：翻译（免费）
 - `iShot`：截图、长截图、录屏（基础免费）
-- `嘀嗒清单`：时间与日程管理（基础免费）
 - `MWeb` / `Typora` / `FSNotes`：Markdown 笔记管理
-- `FastZip/MacZip`：解压缩（免费）
+- `keka`：解压缩（免费）
 - `NTFS Disk by Omi`：免费的 NTFS 磁盘读写管理器（支持 M1）
 - `OmniGraffle Pro`：图表/流程图等矢量图绘制
 - `Reeder`：RSS 订阅
 - `IINA`：[`开源`](https://github.com/iina/iina)音视频播放器
 - `Beyond Compare`：文件/文本对比
-- `Rectangle` - [`开源`](https://github.com/rxhanson/Rectangle)窗口整理/分屏
-- `uTools`：类似 Alfred 的效率工具，跨平台（免费）
-- `Brave Browser`：基于 `Chromium` 的[`开源`](https://github.com/brave/brave-browser)浏览器，号称能更好的保护隐私
-- `Bitwarden`：[`开源`](https://github.com/bitwarden/clients) 密码管理器
 - `Maccy`：[`开源`](https://github.com/p0deje/Maccy)剪切板管理工具
 - [`FlyKey`](https://www.better365.cn/FlyKey.html) - 应用快捷键展示（免费）
 - `Parallels Desktop` - 虚拟机
-- AlDente - 电源管理，让电池更耐用（基础免费）
+- `AlDente` - 电源管理，让电池更耐用（基础免费）
+- `HandBrake`: 视频处理软件（主要用于压缩录制的视频）（[开源](https://handbrake.fr/)）
+- `Microsoft Office`
+- `Microsoft To-Do`
+- `PDF Expert`
+- `Paste：` 最好用的剪切板工具
+- `Bartender 4`：状态栏隐藏图标
+- `LuLu`：防火墙，可以控制应用的联网（装了破解软件的还是建议安装一下这个防火墙）
+- `BurpSuite`：BugHunter必备的HTTP抓包，扫描等常用Web测试功能的软件，如果不用Pro则仅支持抓包修改包等基础功能
+- `Yakit`：BurpSuite的开源平替，并且自定义程度很高（[开源](https://handbrake.fr/)）
 
-还有很多优秀软件没有推荐，后续单开一个专门介绍。
-
+PS: 以上推荐的部分付费软件可以使用 [InjectLib](https://github.com/yaklang/yakit) 进行破解
 
 ## 开发环境
 
@@ -1078,20 +1136,20 @@ brew tap shivammathur/php
 
 - 安装 PHP
 
-> 此处示例安装 `PHP 7.4`
+> 此处示例安装 `PHP 7.2`
 ```shell
-brew install php@7.4
+brew install php@7.2
 ```
 
 > 将此版本替换为命令行默认版本
 ```shell
-brew link --overwrite --force php@7.4
+brew link --overwrite --force php@7.2
 ```
 
 > 添加到 PATH
 ```shell
-echo 'export PATH="/opt/homebrew/opt/php@7.4/bin:$PATH"' >> ~/.zshrc
-echo 'export PATH="/opt/homebrew/opt/php@7.4/sbin:$PATH"' >> ~/.zshrc
+echo 'export PATH="/opt/homebrew/opt/php@7.2/bin:$PATH"' >> ~/.zshrc
+echo 'export PATH="/opt/homebrew/opt/php@7.2/sbin:$PATH"' >> ~/.zshrc
 ```
 
 - 配置
@@ -1158,12 +1216,12 @@ brew install go
 
 或者指定版本
 ```shell
-brew install go@1.13
+brew install go@1.18
 ```
 
 非最新版本，需要建立个链接，这样才能用到 Go 命令
 ```shell
-brew link --overwrite --force go@1.13
+brew link --overwrite --force go@1.18
 ```
 
 
