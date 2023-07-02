@@ -601,6 +601,11 @@ cat ~/.ssh/id_rsa.pub
 
 打开 [GitHub](https://github.com/settings/ssh/new) SSH key 配置页面（`个人头像 > Settings > Access > SSH and GPG keys > New SSH Key`），将拷贝的 `ssh-rsa` 密钥内容添加到 GitHub。
 
+#### GitHub CLI 登陆配置
+
+自从 2021 年之后 Github 就取消了密码登陆，现在只能用 token 登陆
+
+`个人头像 > Settings > Developer settings > Personal access tokens > Tokens (classic)` 生成 toekn，然后终端提示你登陆的时候用这个token作为密码输入就可以了。
 
 #### Git 配置 user
 终端执行命令 `git config --global -e` 打开 Git 全局配置文件，修改或添加 `[user]` 内容：
