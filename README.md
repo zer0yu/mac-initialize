@@ -897,11 +897,13 @@ PS：开源版本就够用，并且支持M1/M2
 - `PDF Expert`
 - `Paste：` 最好用的剪切板工具
 - `Bartender 4`：状态栏隐藏图标
-- `LuLu`：防火墙，可以控制应用的联网（装了破解软件的还是建议安装一下这个防火墙）
+- `LuLu`：防火墙，可以控制应用的联网（装了破解软件的还是建议安装一下这个防火墙）（[开源](https://github.com/objective-see/LuLu)）
+- `OverSight`：OverSight监控Mac的麦克风和网络摄像头，当内部麦克风被激活时，或当一个进程访问网络摄像头时，会提醒用户。（[开源](https://github.com/objective-see/OverSight)）
+- `BlockBlock`：BlockBlock通过监控持久性位置提供持续的保护（[开源](https://github.com/objective-see/BlockBlock)）
 - `BurpSuite`：BugHunter必备的HTTP抓包，扫描等常用Web测试功能的软件，如果不用Pro则仅支持抓包修改包等基础功能
-- `Yakit`：BurpSuite的开源平替，并且自定义程度很高（[开源](https://handbrake.fr/)）
+- `Yakit`：BurpSuite的开源平替，并且自定义程度很高（[开源](https://github.com/yaklang/yakit)）
 
-PS: 以上推荐的部分付费软件可以使用 [InjectLib](https://github.com/yaklang/yakit) 进行破解
+PS: 以上推荐的部分付费软件可以使用 [InjectLib](https://github.com/QiuChenlyOpenSource/InjectLib) 进行破解
 
 ## 开发环境
 
