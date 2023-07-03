@@ -880,7 +880,9 @@ PS：开源版本就够用，并且支持M1/M2
 - `Notion`：理念先进的笔记软件，加上Notion AI，目前已经基本离不开
 - `MonitorControl`：[`开源`](https://github.com/MonitorControl/MonitorControl) 显示器亮度、音量控制，支持外接显示器
 - `iShot`：截图、长截图、录屏（基础免费）
-- `MWeb` / `Typora` / `FSNotes`：Markdown 笔记管理
+- `MWeb` / `Typora` ：Markdown 笔记管理
+- `KeyboardHolder`：输入法切换辅助工具，能够在应用切换过程中帮助你自动切换到合适的输入法，免去了应用切换后输入法不对应的烦恼（[开源](https://github.com/leaves615/KeyboardHolder)）
+- `Keyboard Maestro`：很强的快捷键管理和配置工具（[Keyboard Maestro 入门指南](https://sspai.com/post/36442)）
 - `keka`：解压缩（免费）
 - `NTFS Disk by Omi`：免费的 NTFS 磁盘读写管理器（支持 M1）
 - `OmniGraffle Pro`：图表/流程图等矢量图绘制
@@ -1250,5 +1252,4 @@ export GOPRIVATE=*.your-private-git.com
 [url "ssh://git@git.example.com:8182/"]
         insteadOf = https://git.example.com/
 ```
-
 
