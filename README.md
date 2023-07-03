@@ -693,7 +693,10 @@ set wrap            " 自动换行
 
 开源地址: https://github.com/Tencent/lemon-cleaner
 
-最值得使用的功能，莫过于**清理与当前芯片不同版本的二进制文件**：
+最值得使用的功能，莫过于清理与当前芯片不同版本的二进制文件：
+
+⚠️**要注意的，这个功能在macOS Ventura 13.0中，清理二进制文件会导致被清理的软件无法正常运行！！！** 并且目前官方并没有更新对这个问题的解决。
+
 ![lemon-clean-rosetta](assets/lemon-clean-rosetta.jpg)
 
 ### Deep Clean
