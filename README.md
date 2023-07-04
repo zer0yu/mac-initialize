@@ -903,6 +903,7 @@ PS：开源版本就够用，并且支持M1/M2
 - `PDF Expert`
 - `Paste：` 最好用的剪切板工具
 - `Bartender 4`：状态栏隐藏图标
+- `LocalSend`：局域网文件互传
 - `LuLu`：防火墙，可以控制应用的联网（装了破解软件的还是建议安装一下这个防火墙）（[开源](https://github.com/objective-see/LuLu)）
 - `OverSight`：OverSight监控Mac的麦克风和网络摄像头，当内部麦克风被激活时，或当一个进程访问网络摄像头时，会提醒用户。（[开源](https://github.com/objective-see/OverSight)）
 - `BlockBlock`：BlockBlock通过监控持久性位置提供持续的保护（[开源](https://github.com/objective-see/BlockBlock)）
