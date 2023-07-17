@@ -243,6 +243,41 @@ PS: 如果有修改用户名的需求建议直接重制系统然后进行设置�
 
 **添加**：从启动台（应用全列表）拖动图标到程序坞指定位置
 
+#### 程序坞自动隐藏加速
+
+```
+# 设置启动坞动画时间设置为 0.5 秒 
+defaults write com.apple.dock autohide-time-modifier -float 0.5 && killall Dock
+
+# 设置启动坞响应时间最短
+defaults write com.apple.dock autohide-delay -int 0 && killall Dock
+
+# 恢复启动坞默认动画时间
+defaults delete com.apple.dock autohide-time-modifier && killall Dock
+
+# 恢复默认启动坞响应时间
+defaults delete com.apple.Dock autohide-delay && killall Dock
+```
+
+### 启动台
+
+```
+# 设置列数
+defaults write com.apple.dock springboard-columns -int 7
+
+# 设置行数
+defaults write com.apple.dock springboard-rows -int 6
+
+# 重启 Dock 生效
+killall Dock
+
+# 恢复默认的列数和行数
+defaults write com.apple.dock springboard-rows Default
+defaults write com.apple.dock springboard-columns Default
+
+# 重启 Dock 生效
+killall Dock
+```
 
 ### 显示器
 
@@ -395,7 +430,28 @@ GitHub: https://github.com/Homebrew/brew
 
 清华大学开源软件镜像站及安装、镜像教程: https://mirrors.tuna.tsinghua.edu.cn/help/homebrew/
 
+```bash
+# 更新 Homebrew
+brew update
 
+#  搜索相关的包
+brew search [关键词] 
+
+# 查看包的信息
+rew info [软件名]
+ 
+# 查看已安装的包
+brew list
+
+# 更新某个软件
+brew upgrade [软件名]
+
+# 清理所有软件的旧版
+brew cleanup
+
+# 卸载某个软件
+brew uninstall [软件名]
+```
 
 ### iTerm2
 开源免费、美观高效的最强终端工具。
@@ -413,6 +469,7 @@ GitHub: https://github.com/Homebrew/brew
 一般我使用 Catppuccin 的配色 : https://github.com/catppuccin/iterm
 
 只需要下载预设然后导入并使用即可
+
 
 
 #### 背景图
@@ -654,9 +711,11 @@ git config --global init.defaultBranch <name>
 ### Vim
 在 macOS 上 `Vim` 使用较浅，故配置够用即可，不装扩展。直接 `vim ~/.vimrc`：
 
+先下载 https://github.com/catppuccin/vim ，把 color 文件夹中的文件放在 `~/.vim/` 目录下面。随后使用如下vim配置
+
 ```vim
 " 推荐设置
-colorscheme desert  " 颜色显示方案
+colorscheme catppuccin_macchiato  " 颜色显示方案
 syntax on           " 打开语法高亮
 set tabstop=4       " TAB 字符的显示宽度
 
@@ -719,7 +778,10 @@ set wrap            " 自动换行
 
 开源地址：https://github.com/xiaochunjimmy/Sogou-Input-Skin
 
-PS: 因为隐私保护问题，建议使用系统自带的输入法
+PS: 因为隐私保护问题，建议使用系统自带的输入法。键盘可以按照下图这样子配置，可以提升效率
+
+![](assets/keyboard-settings.png)
+
 
 ### Chrome
 官网下载: https://www.google.cn/intl/zh-CN/chrome/
@@ -952,7 +1014,7 @@ PS: 以上推荐的部分付费软件可以使用 [InjectLib](https://github.com
 
 下载安装，然后验证：
 ```shell
-➜  ~ java -version
+ ~ java -version
 java version "1.8.0_311"
 Java(TM) SE Runtime Environment (build 1.8.0_311-b11)
 Java HotSpot(TM) 64-Bit Server VM (build 25.311-b11, mixed mode)
@@ -988,7 +1050,7 @@ sudo ln -sfn /opt/homebrew/opt/openjdk@8/libexec/openjdk.jdk /Library/Java/JavaV
 对应的安装教程: https://docs.azul.com/core/zulu-openjdk/install/macos
 
 ```shell
-➜ java -version
+java -version
 openjdk version "1.8.0_342"
 OpenJDK Runtime Environment (Zulu 8.64.0.15-CA-macos-aarch64) (build 1.8.0_342-b07)
 OpenJDK 64-Bit Server VM (Zulu 8.64.0.15-CA-macos-aarch64) (build 25.342-b07, mixed mode)
@@ -1256,5 +1318,139 @@ export GOPRIVATE=*.your-private-git.com
 ```shell
 [url "ssh://git@git.example.com:8182/"]
         insteadOf = https://git.example.com/
+```
+
+### Python
+安装IPython
+```bash
+brew install ipython
+```
+
+使用 pyenv 来管理python的版本(也可以使用 conda )。
+
+> pyenv 是一个强大 Python 包管理工具，可以灵活地切换各种 Python 版本，Linux 和 macOS 强烈建议使用 pyenv 来管理我们的 Python 版本，优雅高效且不会破坏掉系统自带的 Python 环境。
+
+```bash
+# 安装 pyenv
+brew install pyenv
+# 配置
+echo 'eval "$(pyenv init -)"' >> ~/.zshrc
+```
+
+常用命令
+```bash
+# 查看已经安装的Python版本
+pyenv versions
+
+# 查看当前的 Python 版本
+pyenv version
+
+# 查看可安装的版本
+pyenv install -l
+
+# 安装与卸载 3.11.4
+pyenv install 3.11.4
+pyenv uninstall 3.11.4
+
+# global 全局设置 一般不建议改变全局设置
+pyenv global <python版本>
+
+# shell 会话设置 只影响当前的shell会话
+pyenv shell <python版本>
+# 取消 shell 会话的设置
+pyenv shell --unset
+
+# local 本地设置 只影响所在文件夹
+pyenv local <python版本>
+```
+PS: pyenv 的 global、local、shell 的优先级关系是：shell > local > global
+
+### NodeJS
+
+同样建议使用 nvm 来做 nodejs 的版本管理，因为现在常用的就有两个版本：18.16.1 LTS 和 20.4.0 Current
+
+```bash
+# install
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.3/install.sh | bash
+
+# 查看版本信息
+nvm --version
+
+# 查看当前 node 的版本
+nvm version 
+
+# 安装最新稳定版 node
+nvm install stable
+
+# 列出所有远程服务器的版本
+nvm ls-remote
+
+# 安装指定版本
+nvm install v18.16.1
+nvm install <version>
+
+# 列出所有已安装的版本
+nvm ls
+
+# 卸载指定的版本
+nvm uninstall <version>
+
+# 切换使用指定的版本node
+nvm use <version>
+
+# 显示当前的版本
+nvm current
+```
+
+### MySQL
+
+安装与配置
+```bash
+# 搜索可以安装的版本
+brew search mysql
+
+# 安装对应的版本
+brew install mysql@5.7
+
+# 写入环境变量
+echo 'export PATH="/opt/homebrew/opt/mysql@5.7/bin:$PATH"' >> ~/.zshrc
+
+# 为了让编译器找到 mysql@5.7 还需要写入
+echo 'export LDFLAGS="-L/opt/homebrew/opt/mysql@5.7/lib"' >> ~/.zshrc
+echo 'export CPPFLAGS="-I/opt/homebrew/opt/mysql@5.7/include"' >> ~/.zshrc
+
+# 为了让 pkg-config 找到 mysql@5.7 还需要写入
+echo 'PKG_CONFIG_PATH="/opt/homebrew/opt/mysql@5.7/lib/pkgconfig"' >> ~/.zshrc
+```
+
+MySQL 运行
+```bash
+# 查看 M有SQL 服务状态
+brew services info mysql@5.7
+mysql.server status
+
+# 启动 MySQL 服务
+brew services start mysql@5.7
+mysql.server start
+
+# 重启 MySQL 服务
+brew services restart mysql@5.7
+mysql.server restart
+
+# 停止 MySQL 服务
+brew services stop mysql@5.7
+mysql.server stop
+```
+
+初始配置（主要是配置密码和关闭远程root账户登陆）
+```bash
+brew services start mysql@5.7
+mysql_secure_installation
+```
+
+开启数据库外连
+```mysql
+mysql > grant all on *.* to root@'%' identified by '你设置的密码' with grant option;
+mysql > flush privileges;
 ```
 
