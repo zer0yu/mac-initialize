@@ -938,11 +938,12 @@ PS：开源版本就够用，并且支持M1/M2
 
 - [ChatGPT插件-免API](https://github.com/akl7777777/bob-plugin-akl-chatgpt-free-translate)
 - [ChatGPT插件](https://github.com/openai-translator/bob-plugin-openai-translator)
-- [DeppL插件-免API](https://github.com/akl7777777/bob-plugin-akl-deepl-free-translate)
+- [DeepL插件-免API](https://github.com/akl7777777/bob-plugin-akl-deepl-free-translate)
 
 
 ### 其他软件
 - [`f.lux`](https://justgetflux.com)：自动调整屏幕色温的护眼程序（免费）
+- `State`: 系统运行状态监控软件（可以现实 CPU，上下行；[开源](https://github.com/exelban/stats)）
 - `Notion`：理念先进的笔记软件，加上Notion AI，目前已经基本离不开
 - `MonitorControl`：[`开源`](https://github.com/MonitorControl/MonitorControl) 显示器亮度、音量控制，支持外接显示器
 - `iShot`：截图、长截图、录屏（基础免费）
