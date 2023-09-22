@@ -1,7 +1,7 @@
 # Mac 开光指南（V3）
 💻 一份新 macOS 快速食用方法，普适新 Mac 或重装系统。
 
-> 本指南基于 MBP(Intel) 16寸 13.4.1 系统（**主**）和 MBA(M1) 13寸 13.4.1 系统。
+> 本指南基于 MBP(Intel) 16寸 13.5.2 系统（**主**）和 MBA(M1) 13寸 13.5.2 系统。
 >
 > 系统和软件的更新频繁，本项目不一定及时更新，故操作界面或步骤会略有差别，但影响不大。如有影响和疑问请提issue
 >
@@ -15,7 +15,7 @@
 >
 > 长期更新地址: https://github.com/zer0yu/mac-initialize
 >
-> 最后更新于 `2023-07-02`
+> 最后更新于 `2023-09-22`
 
 
 ## 应用安装
@@ -972,6 +972,7 @@ PS：开源版本就够用，并且支持M1/M2
 - `BlockBlock`：BlockBlock通过监控持久性位置提供持续的保护（[开源](https://github.com/objective-see/BlockBlock)）
 - `BurpSuite`：BugHunter必备的HTTP抓包，扫描等常用Web测试功能的软件，如果不用Pro则仅支持抓包修改包等基础功能
 - `Yakit`：BurpSuite的开源平替，并且自定义程度很高（[开源](https://github.com/yaklang/yakit)）
+- `OrbStack`：可以在M1/M2 芯片上运行 x86 的ubuntu，此外比desktop for docker 岗位轻量级（[官网Free](https://orbstack.dev/)）
 
 PS: 以上推荐的部分付费软件可以使用 [InjectLib](https://github.com/QiuChenlyOpenSource/InjectLib) 进行破解
 
