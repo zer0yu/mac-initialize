@@ -617,7 +617,22 @@ brew install zsh-syntax-highlighting
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ```
 
+###### zsh-fast-syntax-highlighting
+
+```
+brew install zsh-fast-syntax-highlighting
+```
+
+安装完后，根据提示，打开 `~/.zshrc` 添加：
+
+```
+source /usr/local/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+```
+
+然后修改使用 
+
 ##### autojump
+
 > 实现目录间快速跳转，想去哪个目录直接 `j + 目录名`
 > 
 > https://github.com/wting/autojump
