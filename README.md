@@ -954,6 +954,7 @@ PS：开源版本就够用，并且支持M1/M2
 - [ChatGPT插件-免API](https://github.com/akl7777777/bob-plugin-akl-chatgpt-free-translate)
 - [ChatGPT插件](https://github.com/openai-translator/bob-plugin-openai-translator)
 - [DeepL插件-免API](https://github.com/akl7777777/bob-plugin-akl-deepl-free-translate)
+- [DeeplX](https://github.com/OwO-Network/DeepLX/)
 
 
 ### 其他软件
