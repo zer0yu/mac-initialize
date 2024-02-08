@@ -381,8 +381,17 @@ pwpolicy -clearaccountpolicies
 
 也可以通过命令 `launchctl` 进行管理。
 
+### 关闭输入法切换时的提示图标
+> 自 macOS 14 Sonoma 开始，默认会在切换输入法时，光标处有个提示图标。
+>
+> 在终端类软件中，执行以下指令，并按提示输入电脑密码，然后重启电脑后关闭该提示。
+
+```shell
+sudo defaults write /Library/Preferences/FeatureFlags/Domain/UIKit.plist redesigned_text_cursor -dict-add Enabled -bool NO
+```
 
 ### 关于 SIP
+
 SIP（`System Integrity Protection`，系统完整性保护）是 macOS 所采用的一项安全技术，能够帮助防止潜在恶意软件修改 macOS 上受保护的文件和文件夹。系统完整性保护可以限制 `root` 用户帐户，以及 `root` 用户能够在 macOS 的受保护部分完成的操作。
 
 为了安全，**强烈不建议**关闭 `SIP` 保护。
